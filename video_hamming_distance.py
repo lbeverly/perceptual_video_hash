@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 from scipy.spatial import distance 
 
-# perform hamming distance on two video fimming(u, v):
+# perform hamming distance on two videos
  
 # Computes the Hamming distance between two 1-D arrays.
 # The Hamming distance between 1-D arrays `u` and `v`, is simply the
