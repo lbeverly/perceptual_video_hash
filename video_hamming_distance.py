@@ -1,30 +1,14 @@
 #!/usr/bin/env python
-from scipy.spatial import distance 
+from BitVector import BitVector
 
 # perform hamming distance on two videos
- 
-# Computes the Hamming distance between two 1-D arrays.
-# The Hamming distance between 1-D arrays `u` and `v`, is simply the
-# proportion of disagreeing components in `u` and `v`. If `u` and `v` are
-# boolean vectors, the Hamming distance is
-#  .. math::
-#       \\frac{c_{01} + c_{10}}{n}
-#    where :math:`c_{ij}` is the number of occurrences of
-#    :math:`\\mathtt{u[k]} = i` and :math:`\\mathtt{v[k]} = j` for
-#    :math:`k < n`.
-#    Parameters
-#    ----------
-#    u : (N,) array_like
-#        Input array.
-#    v : (N,) array_like
-#        Input array.
-#    Returns
-#    -------
-#    hamming : double
-#        The Hamming distance between vectors `u` and `v`.
+# u, v need to be 1-D numpy arrays for the hamming function
+
+def video_hamming_distance(video_1_hash, video_2_hash):
+    bv_1 = BitVector(intVal = video_1_hash)
+    bv_2 = BitVector(intVal = video_2_hash)
+    return bv_1.hamming_distance(bv_2)
 
 
-def hamming(u, v):
-	u = _validate_vector(u)
-	v = _validate_vector(v)
-	return (u != v).mean()
+
+print(video_hamming_distance(video_1_hash, video_2_hash))
